@@ -279,8 +279,8 @@
         <ul>
           <li>Everything in Event Recap Film</li>
           <li>Full concert recorded start to finish, multicam edit with board audio</li>
-          <li>Artifact unveiling delivered as its own standalone piece</li>
-          <li>Graded B-roll library for the museum's archive</li>
+          <li>Full raw footage archive for the museum's collection</li>
+          
         </ul>
         <button class="btn" data-preset="full">Start with this</button>
       </div>
@@ -314,16 +314,14 @@
           <label class="item"><input type="checkbox" value="recap" data-name="2 to 3 minute recap film" data-price="600"><span><b>2 to 3 minute recap film</b><span class="d">The full story of the afternoon: concert, choir, unveiling, and the people in the room. Horizontal master. 10 days.</span></span><span class="r">$600</span></label>
           <label class="item"><input type="checkbox" value="interview" data-name="Mr. Talkbox interview" data-price="250"><span><b>Mr. Talkbox interview</b><span class="d">10 to 15 minutes before or after the concert, lit and miked. Used in the recap, and delivered as its own clip for the archive.</span></span><span class="r">$250</span></label>
           <label class="item"><input type="checkbox" value="vertical" data-name="Vertical cutdown of the recap" data-price="150"><span><b>Vertical cutdown of the recap</b><span class="d">The recap reformatted for Instagram, TikTok, and Stories, with captions.</span></span><span class="r">$150</span></label>
-          <label class="item"><input type="checkbox" value="concert" data-name="Full concert, multicam edit" data-price="900"><span><b>Full concert, multicam edit</b><span class="d">The performance start to finish, switched between angles with board audio. Requires three-camera coverage. 3 weeks.</span></span><span class="r">$900</span></label>
-          <label class="item"><input type="checkbox" value="unveil" data-name="Artifact unveiling, standalone piece" data-price="250"><span><b>Artifact unveiling, standalone piece</b><span class="d">The reveal cut as its own short video for the exhibit, the website, or the donor who made it possible.</span></span><span class="r">$250</span></label>
-          <label class="item"><input type="checkbox" value="choir" data-name="MNPS Student Choir standalone clip" data-price="250"><span><b>MNPS Student Choir standalone clip</b><span class="d">The students' performance on its own, easy to share with families and the district.</span></span><span class="r">$250</span></label>
+          <label class="item"><input type="checkbox" value="concert" data-name="Full concert, multicam edit" data-price="1150"><span><b>Full concert, multicam edit</b><span class="d">The performance start to finish, switched between angles with board audio. Requires three-camera coverage. 3 weeks.</span></span><span class="r">$1,150</span></label>
           <label class="item"><input type="checkbox" value="archive" data-name="Full raw footage archive" data-price="150"><span><b>Full raw footage archive</b><span class="d">Every file from the day, delivered by download link for the museum's collection.</span></span><span class="r">$150</span></label>
         </div>
 
         <div class="group">
           <div class="group-label">Step 3 &nbsp;/&nbsp; Add-ons</div>
           <label class="item"><input type="checkbox" value="photo" data-name="Event photography" data-price="1200"><span><b>Event photography</b><span class="d">A dedicated second photographer for the concert, unveiling, and guests, so video coverage is never split. 50+ edited images in 7 days.</span></span><span class="r">$1,200</span></label>
-          <label class="item"><input type="checkbox" value="rush" data-name="72 hour rush on the social highlight" data-price="350"><span><b>72 hour rush on the social highlight</b><span class="d">The 60 second highlight delivered within three days, so it posts while the event is still current.</span></span><span class="r">$350</span></label>
+          <label class="item"><input type="checkbox" value="rush" data-name="72 hour rush on the social highlight" data-price="600"><span><b>72 hour rush on the social highlight</b><span class="d">The 60 second highlight delivered within three days, so it posts while the event is still current.</span></span><span class="r">$600</span></label>
         </div>
       </div>
 
@@ -483,7 +481,7 @@
   var presets={
     moments:['crew1','selects','social'],
     recap:['crew2','selects','social','recap','interview','vertical'],
-    full:['crew3','selects','social','recap','interview','vertical','concert','unveil','archive']
+    full:['crew3','selects','social','recap','interview','vertical','concert','archive']
   };
   function money(n){return '$'+n.toLocaleString('en-US')}
   function update(){
