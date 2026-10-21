@@ -331,6 +331,7 @@
         <div class="sum" id="sum">$0</div>
         <ul id="list"></ul>
         <p class="empty" id="empty">Choose a coverage level and at least one deliverable.</p>
+        <p class="dep" id="auto" style="color:var(--gold-soft)"></p>
         <p class="dep" id="dep"></p>
         <a class="btn" id="send" aria-disabled="true" href="#">Send my selection to Bryan</a>
         <p class="small" style="color:#9E959C;margin:14px 0 0;font-size:12.5px">Opens an email with your picks filled in. Nothing is booked until you confirm.</p>
@@ -487,12 +488,15 @@
   function update(){
     var concert=document.querySelector('input[value=concert]');
     var crew3=document.querySelector('input[value=crew3]');
-    if(concert.checked && !crew3.checked){crew3.checked=true}
+    var notes=[];
+    if(concert.checked && !crew3.checked){crew3.checked=true;notes.push('The full concert edit needs three cameras, so coverage was updated.')}
     var iv=document.querySelector('input[value=interview]');
     var c1=document.querySelector('input[value=crew1]');
-    if(iv.checked && c1.checked){document.querySelector('input[value=crew2]').checked=true}
+    if(iv.checked && c1.checked){document.querySelector('input[value=crew2]').checked=true;notes.push('The interview needs a two-person crew so the event stays covered, so coverage was updated.')}
     var rush=document.querySelector('input[value=rush]');
-    if(rush.checked){document.querySelector('input[value=social]').checked=true}
+    var soc=document.querySelector('input[value=social]');
+    if(rush.checked && !soc.checked){soc.checked=true;notes.push('The rush applies to the 60 second highlight, so it was added.')}
+    if(notes.length){document.getElementById('auto').textContent=notes.join(' ')}
     var picked=inputs.filter(function(i){return i.checked});
     var total=0,list=document.getElementById('list');list.innerHTML='';
     picked.forEach(function(i){
@@ -522,6 +526,7 @@
     b.addEventListener('click',function(){
       var set=presets[b.dataset.preset];
       inputs.forEach(function(i){i.checked=set.indexOf(i.value)>-1});
+      document.getElementById('auto').textContent='';
       update();
       document.getElementById('build').scrollIntoView({behavior:'smooth'});
     });
