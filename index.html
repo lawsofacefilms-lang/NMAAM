@@ -295,7 +295,7 @@
     <div class="head">
       <p class="eyebrow">Everything, itemized</p>
       <h2>Build exactly what you need</h2>
-      <p class="lede" style="margin-top:18px">Choose a coverage level, then check the deliverables you want. The total updates as you go. When it looks right, send it over and I will confirm and send the agreement.</p>
+      <p class="lede" style="margin-top:18px">Choose a coverage level, then check the deliverables you want. The total updates as you go. When it looks right, send it over and I will confirm and send the agreement. Bookings start at $1,500.</p>
     </div>
 
     <div class="builder">
@@ -496,9 +496,12 @@
     });
     var hasCrew=picked.some(function(i){return i.name==='crew'});
     var hasDeliv=picked.some(function(i){return i.name!=='crew'});
-    var ok=hasCrew&&hasDeliv;
+    var MIN=1500;
+    var ok=hasCrew&&hasDeliv&&total>=MIN;
     document.getElementById('sum').textContent=money(total);
-    document.getElementById('empty').style.display=ok?'none':'block';
+    var em=document.getElementById('empty');
+    em.style.display=ok?'none':'block';
+    em.textContent=(hasCrew&&hasDeliv&&total<MIN)?('Bookings start at $1,500. Add '+money(MIN-total)+' more in deliverables or add-ons to reach the minimum.'):'Choose a coverage level and at least one deliverable.';
     document.getElementById('dep').textContent=ok?('Deposit to reserve the date: '+money(Math.round(total/2))):'';
     var send=document.getElementById('send');
     send.setAttribute('aria-disabled',ok?'false':'true');
