@@ -311,7 +311,7 @@
           <div class="group-label">Step 2 &nbsp;/&nbsp; Deliverables (choose any)</div>
           <label class="item"><input type="checkbox" value="selects" data-name="Graded B-roll selects" data-price="300"><span><b>Graded B-roll selects</b><span class="d">The best clips from the afternoon, color corrected and organized by moment, ready for your team to use. 7 days.</span></span><span class="r">$300</span></label>
           <label class="item"><input type="checkbox" value="social" data-name="60 second highlight for social" data-price="500"><span><b>60 second highlight for social</b><span class="d">Vertical, captioned, cut to music from the day. 7 days.</span></span><span class="r">$500</span></label>
-          <label class="item"><input type="checkbox" value="recap" data-name="2 to 3 minute recap film" data-price="1100"><span><b>2 to 3 minute recap film</b><span class="d">The full story of the afternoon: concert, choir, unveiling, and the people in the room. Horizontal master. 10 days.</span></span><span class="r">$1,100</span></label>
+          <label class="item"><input type="checkbox" value="recap" data-name="2 to 3 minute recap film" data-price="1100"><span><b>2 to 3 minute recap film</b><span class="d">The full story of the afternoon: concert, choir, unveiling, and the people in the room. Horizontal master. 10 days. Includes the two-person crew, B-roll selects, and the 60 second highlight.</span></span><span class="r">$1,100</span></label>
           <label class="item"><input type="checkbox" value="interview" data-name="Mr. Talkbox interview" data-price="250"><span><b>Mr. Talkbox interview</b><span class="d">10 to 15 minutes before or after the concert, lit and miked. Used in the recap, and delivered as its own clip for the archive. Requires the two-person crew so the event stays covered while the interview happens.</span></span><span class="r">$250</span></label>
           <label class="item"><input type="checkbox" value="vertical" data-name="Vertical cutdown of the recap" data-price="150"><span><b>Vertical cutdown of the recap</b><span class="d">The recap reformatted for Instagram, TikTok, and Stories, with captions.</span></span><span class="r">$150</span></label>
           <label class="item"><input type="checkbox" value="concert" data-name="Full concert, multicam edit" data-price="1150"><span><b>Full concert, multicam edit</b><span class="d">The performance start to finish, switched between angles with board audio. Requires three-camera coverage. 3 weeks.</span></span><span class="r">$1,150</span></label>
@@ -493,6 +493,13 @@
     var iv=document.querySelector('input[value=interview]');
     var c1=document.querySelector('input[value=crew1]');
     if(iv.checked && c1.checked){document.querySelector('input[value=crew2]').checked=true;notes.push('The interview needs a two-person crew so the event stays covered, so coverage was updated.')}
+    var rc=document.querySelector('input[value=recap]');
+    if(rc.checked){
+      var changed=false;
+      if(c1.checked){document.querySelector('input[value=crew2]').checked=true;changed=true}
+      ['selects','social'].forEach(function(v){var x=document.querySelector('input[value='+v+']');if(!x.checked){x.checked=true;changed=true}});
+      if(changed){notes.push('The recap film comes with the two-person crew, B-roll selects, and the 60 second highlight, so those were added.')}
+    }
     var rush=document.querySelector('input[value=rush]');
     var soc=document.querySelector('input[value=social]');
     if(rush.checked && !soc.checked){soc.checked=true;notes.push('The rush applies to the 60 second highlight, so it was added.')}
